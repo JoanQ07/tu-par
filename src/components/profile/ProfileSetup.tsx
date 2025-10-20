@@ -10,7 +10,7 @@ export const ProfileSetup = () => {
   const [formData, setFormData] = useState({
     intereses: [] as string[],
     habilidades: [] as string[],
-    personalidad: '' as PersonalityType | '',
+    personalidad: undefined as PersonalityType | undefined,
     descripcion: '',
     ubicacion: {
       ciudad: '',
@@ -180,9 +180,12 @@ export const ProfileSetup = () => {
                     Personalidad
                   </label>
                   <select
-                    value={formData.personalidad}
+                    value={formData.personalidad ?? ''}
                     onChange={(e) =>
-                      setFormData({ ...formData, personalidad: e.target.value as PersonalityType })
+                      setFormData({
+                        ...formData,
+                        personalidad: e.target.value === '' ? undefined : (e.target.value as PersonalityType),
+                      })
                     }
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
                   >

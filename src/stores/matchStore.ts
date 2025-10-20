@@ -22,7 +22,7 @@ interface MatchState {
   setSearchFilters: (filters: SearchFilters) => void;
 }
 
-export const useMatchStore = create<MatchState>((set, get) => ({
+export const useMatchStore = create<MatchState>((set) => ({
   matches: [],
   potentialMatches: [],
   connectionRequests: {

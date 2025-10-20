@@ -16,7 +16,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
   isLoading: false,
 
-  login: async (correo: string, password: string) => {
+  login: async (correo: string) => {
     set({ isLoading: true });
     try {
       // TODO: Implementar lógica de autenticación con el backend
